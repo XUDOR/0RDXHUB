@@ -10,7 +10,7 @@ body {
   font-weight: 300;
   line-height: 1.6;
   color: #443E35; /* Old Moss */
-  
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 header {
@@ -58,6 +58,8 @@ footer {
 .container {
   display: flex;
   height: calc(100vh - 70px); /* Account for header and footer height */
+  flex-direction: row;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .sidebar {
@@ -85,12 +87,11 @@ footer {
   padding: 25px;
   overflow-y: auto;
   background: #8A9EA0; /* Subtle Light */
- 
 }
 
 .grid-item {
   display: grid;
-  grid-template-columns: 1fr; /* Single column for responsive */
+  grid-template-columns: repeat(4, 1fr); /* Four columns on larger screens */
   gap: 15px;
   padding-bottom: 15px;
   margin-bottom: 25px;
@@ -143,6 +144,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header .TitleTAG {
+    margin-bottom: 10px;
+  }
+
   .container {
     flex-direction: column;
   }
@@ -154,6 +164,6 @@ footer {
   }
 
   .grid-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column for mobile */
   }
 }
