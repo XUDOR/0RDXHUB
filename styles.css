@@ -9,43 +9,87 @@ body {
   font-family: 'Futura', 'Arial', sans-serif;
   font-weight: 300;
   line-height: 1.6;
-  color: #443E35; /* Old Moss */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  color: #443E35;
+  /* Old Moss */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  padding-top: 70px;
+  /* Adjust padding to accommodate fixed header */
 }
 
 header {
   display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  background: #8A9EA0; /* Model Plane */
+  background: #8A9EA0;
   color: #f2f4ed;
   padding: 15px;
   font-weight: lighter;
   letter-spacing: 1px;
+  z-index: 1000;
+  min-height: 70px;
+  /* Change fixed height to min-height */
 }
 
 header .TitleTAG {
-  flex: 1 100%;
+  flex: 1;
   text-align: left;
   font-weight: 500;
-  margin-bottom: 10px;
 }
 
 header .nav {
   display: flex;
-  flex: 1;
+  gap: 10px;
   justify-content: flex-start;
-  gap: 20px;
+  flex-wrap: wrap;
+  /* Allow wrapping for smaller screens */
 }
 
-header .login {
-  flex: 1;
-  margin-left: auto;
+header .login-form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+  width: auto;
+  background: #B5C6BD;
+  /* Mushroom */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #6B6F5F;
+}
+
+header .login-form input {
+  padding: 5px;
+  border: 1px solid #6B6F5F;
+  border-radius: 3px;
+  font-size: 14px;
+  background-color: #f2f4ed;
+  color: #443E35;
+}
+
+header .login-form button {
+  padding: 5px 10px;
+  background: #6B6F5F;
+  color: #f2f4ed;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+header .login-form button:hover {
+  background: #443E35;
 }
 
 footer {
-  background: #8A9EA0; /* Model Plane */
+  background: #8A9EA0;
+  /* Model Plane */
   color: #f2f4ed;
   text-align: right;
   padding: 15px;
@@ -57,24 +101,32 @@ footer {
 
 .container {
   display: flex;
-  height: calc(100vh - 70px); /* Account for header and footer height */
+  height: calc(100vh - 140px);
+  /* Adjusted for fixed header and footer */
   flex-direction: row;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
 }
 
 .sidebar {
-  background: #B5C6BD; /* Mushroom */
-  width: 110px; /* Reduced width */
+  background: #B5C6BD;
+  /* Mushroom */
+  width: auto;
+  /* Adjust width to fit content */
   padding: 15px;
-  border-right: 3px solid #6B6B5F;
+  border-right: 3px solid #6B6F5F;
 }
 
 .sidebar ul {
   list-style: none;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar a {
-  color: #443E35; /* Old Moss */
+  color: #443E35;
+  /* Old Moss */
   text-decoration: none;
   display: block;
   margin-bottom: 12px;
@@ -86,12 +138,14 @@ footer {
   flex: 1;
   padding: 25px;
   overflow-y: auto;
-  background: #8A9EA0; /* Subtle Light */
+  background: #8A9EA0;
+  /* Subtle Light */
 }
 
 .grid-item {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Four columns on larger screens */
+  grid-template-columns: repeat(4, 1fr);
+  /* Four columns for desktop */
   gap: 15px;
   padding-bottom: 15px;
   margin-bottom: 25px;
@@ -99,71 +153,94 @@ footer {
 }
 
 .compartment {
-  background: #8A9EA0; /* Model Plane */
+  background: #8A9EA0;
+  /* Model Plane */
   padding: 20px;
   text-align: left;
   font-size: 16px;
   font-weight: 100;
-  border: 1px solid #6B6B5F;
+  border: 1px solid #6B6F5F;
   color: #41454D;
   border-radius: 2px;
 }
 
-.login-form {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  background: #B5C6BD; /* Mushroom */
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #6B6B5F;
-}
-
-.login-form input {
-  padding: 5px;
-  border: 1px solid #6B6B5F;
-  border-radius: 3px;
-  font-size: 14px;
-  background-color: #f2f4ed;
-  color: #443E35;
-}
-
-.login-form button {
-  padding: 5px 10px;
-  background: #6B6B5F;
-  color: #f2f4ed;
-  border: none;
-  border-radius: 3px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.login-form button:hover {
-  background: #443E35;
-}
-
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
+
+  body {
+    padding-top: 160px;
+    /* Adjust body padding to account for taller header */
   }
 
-  header .TitleTAG {
-    margin-bottom: 10px;
-  }
 
-  .container {
-    flex-direction: column;
-  }
+header {
+  height: auto;
+  /* Allow height to adjust based on content */
+  padding: 15px;
+}
 
-  .sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 3px solid #6B6B5F;
-  }
+header .TitleTAG {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-  .grid-item {
-    grid-template-columns: 1fr; /* Single column for mobile */
-  }
+header .nav {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 15px;
+  /* Add spacing below nav */
+}
+
+header .login-form {
+  width: 100%;
+  /* Make login form full width on mobile */
+  flex-direction: column;
+  /* Stack form elements vertically */
+  gap: 8px;
+  /* Add space between stacked elements */
+}
+
+header .login-form input {
+  width: 100%;
+  /* Make inputs full width */
+}
+
+header .login-form button {
+  width: 100%;
+  /* Make button full width */
+}
+
+.container {
+  flex-direction: column;
+}
+
+.grid-item {
+  grid-template-columns: 1fr;
+  /* Single column for mobile */
+  gap: 10px;
+  /* Reduced gaps for mobile */
+  padding-bottom: 10px;
+  /* Adjust spacing for mobile */
+  width: 100%;
+  /* Full width compartments */
+}
+
+.compartment {
+  width: 100%;
+  box-sizing: border-box;
+  /* Prevent overflow */
+}
+
+.sidebar {
+  width: 100%;
+  border-right: none;
+  border-bottom: 3px solid #6B6F5F;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  gap: 10px;
+  /* Adjust spacing for smaller screens */
+}
+
 }
