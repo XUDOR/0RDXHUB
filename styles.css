@@ -10,6 +10,7 @@ body {
   font-weight: 300;
   line-height: 1.6;
   color: #443E35;
+  background: #8A9EA0;
   /* Old Moss */
   overflow-x: hidden;
   /* Prevent horizontal scrolling */
@@ -59,7 +60,7 @@ header .login-form {
   background: #B5C6BD;
   /* Mushroom */
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 2px;
   border: 1px solid #6B6F5F;
 }
 
@@ -68,8 +69,8 @@ header .login-form input {
   border: 1px solid #6B6F5F;
   border-radius: 3px;
   font-size: 14px;
-  background-color: #f2f4ed;
-  color: #443E35;
+  background-color: #4A4A4A;
+  color: #f2f4ed;
 }
 
 header .login-form button {
@@ -101,11 +102,10 @@ footer {
 
 .container {
   display: flex;
-  height: calc(100vh - 140px);
-  /* Adjusted for fixed header and footer */
+  min-height: calc(100vh - 120px); /* Account for header and footer */
   flex-direction: row;
   overflow-x: hidden;
-  /* Prevent horizontal scrolling */
+  padding-bottom: 50px; /* Space for footer */
 }
 
 .sidebar {
@@ -233,6 +233,9 @@ header .login-form button {
 
 .sidebar {
   width: 100%;
+
+
+  padding-top: 90px;
   border-right: none;
   border-bottom: 3px solid #6B6F5F;
   margin-bottom: 15px;
