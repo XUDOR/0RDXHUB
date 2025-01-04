@@ -6,25 +6,49 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #111;
-  background-color: #fff;
+  font-family: 'Futura', 'Arial', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #443E35; /* Old Moss */
+  
 }
 
 header {
-  background: #000;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #8A9EA0; /* Model Plane */
+  color: #f2f4ed;
+  padding: 15px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+header .TitleTAG {
+  flex: 1 100%;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+header .nav {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+header .login {
+  flex: 1;
+  margin-left: auto;
 }
 
 footer {
-  background: #000;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
+  background: #8A9EA0; /* Model Plane */
+  color: #f2f4ed;
+  text-align: right;
+  padding: 15px;
   font-size: 14px;
   position: fixed;
   bottom: 0;
@@ -33,14 +57,14 @@ footer {
 
 .container {
   display: flex;
-  height: calc(100vh - 60px); /* Account for header and footer height */
+  height: calc(100vh - 70px); /* Account for header and footer height */
 }
 
 .sidebar {
-  background: #f4f4f4;
-  width: 200px;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  background: #B5C6BD; /* Mushroom */
+  width: 110px; /* Reduced width */
+  padding: 15px;
+  border-right: 3px solid #6B6B5F;
 }
 
 .sidebar ul {
@@ -48,30 +72,88 @@ footer {
 }
 
 .sidebar a {
-  color: #000;
+  color: #443E35; /* Old Moss */
   text-decoration: none;
   display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .main {
   flex: 1;
-  padding: 20px;
+  padding: 25px;
   overflow-y: auto;
+  background: #8A9EA0; /* Subtle Light */
+ 
 }
 
 .grid-item {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 20px;
+  grid-template-columns: 1fr; /* Single column for responsive */
+  gap: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #B5C6BD;
 }
 
 .compartment {
-  background: #eaeaea;
+  background: #8A9EA0; /* Model Plane */
   padding: 20px;
-  text-align: center;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 100;
+  border: 1px solid #6B6B5F;
+  color: #41454D;
+  border-radius: 2px;
+}
+
+.login-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #B5C6BD; /* Mushroom */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #6B6B5F;
+}
+
+.login-form input {
+  padding: 5px;
+  border: 1px solid #6B6B5F;
+  border-radius: 3px;
   font-size: 14px;
-  border: 1px solid #ddd;
+  background-color: #f2f4ed;
+  color: #443E35;
+}
+
+.login-form button {
+  padding: 5px 10px;
+  background: #6B6B5F;
+  color: #f2f4ed;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-form button:hover {
+  background: #443E35;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 3px solid #6B6B5F;
+  }
+
+  .grid-item {
+    grid-template-columns: 1fr;
+  }
 }

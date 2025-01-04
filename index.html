@@ -8,8 +8,14 @@
 </head>
 <body>
   <header class="header">
-    <h1>RDXHUB</h1>
+    <h1 class="TitleTAG">RDXHUB</h1>
+    <form class="login-form" action="/login" method="POST">
+      <input type="email" placeholder="Email" name="email" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
   </header>
+  
   
   <div class="container">
     <aside class="sidebar">
@@ -42,7 +48,7 @@
   </div>
   
   <footer class="footer">
-    <p>Fixed Footer</p>
+    <p>RDXENV | 2025</p>
   </footer>
   
   <script src="script.js"></script>
